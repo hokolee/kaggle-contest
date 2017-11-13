@@ -60,7 +60,7 @@ def get_config():
       FLAGS.silent_before_batch = int(item[4])
       return lr, dp
 
-counter_file = stats_dir + '/counters'
+counter_file = stats_dir + '/counters/part-00000'
 
 def get_counter():
   with open(counter_file, 'r') as counter:
