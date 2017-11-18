@@ -13,7 +13,7 @@ parser.add_argument('--task_index', type=int, default=0, help='Task index')
 # flags.DEFINE_string('hidden_layers', "768,512,256,192,128,64,1", 'Network hidden layers')
 parser.add_argument('--hidden_layers', type=str, default="128,128,128", help='Network hidden_layers')
 parser.add_argument('--batch_size', type=int, default=128, help='Batch size to train')
-parser.add_argument('--max_steps', type=int, default=10000, help='Max number of steps to train')
+parser.add_argument('--max_steps', type=int, default=40000, help='Max number of steps to train')
 parser.add_argument('--num_threads', type=int, default=8, help='Number of threads')
 parser.add_argument('--log_per_batch', type=int, default=100, help='Batch number of log')
 parser.add_argument('--save_per_batch', type=int, default=1000, help='Batch number of save model')
@@ -40,14 +40,14 @@ logger = logging.getLogger('dnn')
 logger.info(tmp)
 logger.info(FLAGS)
 
-data_dir = '../../../data'
+data_dir = '../../data'
 
 stats_dir = data_dir + '/stats'
 train_dir = data_dir + '/train'
 validation_dir = data_dir + '/validation'
 test_dir = data_dir + '/test'
 
-config_file = './dnn.config'
+config_file = './dnn/dnn.config'
 
 def get_config():
   with open(config_file, 'r') as config:

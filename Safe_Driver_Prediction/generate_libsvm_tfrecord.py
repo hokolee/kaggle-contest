@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import tensorflow as tf
+import sys
 import os
-
 
 def generate_tfrecords(input_filename, output_filename):
   print("Start to convert {} to {}".format(input_filename, output_filename))
@@ -33,11 +33,12 @@ def generate_tfrecords(input_filename, output_filename):
   print("Successfully convert {} to {}".format(input_filename,output_filename))
 
 def main():
-  current_path = os.getcwd()
-  for filename in os.listdir(current_path):
-    if filename.startswith("") and filename.endswith(".libsvm"):
-      generate_tfrecords(filename, filename + ".tfrecords")
-
+  for arg in sys.argv[1:]:
+    print("input {}".format(arg))
+    for filename in os.listdir(arg):
+      print(filename)
+      if filename.startswith("") and filename.endswith(".libsvm"):
+        generate_tfrecords(os.path.join(arg, filename), os.path.join(arg, filename + ".tfrecords"))
 
 if __name__ == "__main__":
   main()

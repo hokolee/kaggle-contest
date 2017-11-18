@@ -13,7 +13,8 @@ def output_validation(cur_epoch, cur_loss, cur_instance_id, cur_prediction, cur_
   output_file = "%s/validation_%f_%09d.csv" % (FLAGS.result_dir, cur_loss, cur_epoch)
   with open(output_file, 'wb') as csv_file:
     csv_file.write("instance_id,proba,label\n")
-    for line in sorted(ans):
+    # for line in sorted(ans):
+    for line in ans:
       csv_file.write(line)
   logger.info('output result to %s done', output_file)
   csv_file.close()
@@ -71,7 +72,8 @@ def output_test(cur_epoch, cur_loss, cur_instance_id, cur_prediction):
   output_file = "%s/test_%f_%09d.csv" % (FLAGS.result_dir, cur_loss, cur_epoch)
   with open(output_file, 'wb') as csv_file:
     csv_file.write("id,target\n")
-    for line in sorted(ans):
+    # for line in sorted(ans):
+    for line in ans:
       csv_file.write(line)
   logger.info('output result to %s done', output_file)
   csv_file.close()

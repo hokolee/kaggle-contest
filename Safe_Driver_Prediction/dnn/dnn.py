@@ -96,9 +96,7 @@ def train():
         run_metadata = tf.RunMetadata()
         _, mean_loss, tmp_step, summary = sess.run([train_op, train_mean_loss, global_step, summary_op],
                                                    run_metadata=run_metadata, options=run_options,
-                                                   feed_dict={
-                                                     learning_rate : lr
-                                                   })
+                                                   feed_dict={learning_rate : lr})
         writer.add_run_metadata(run_metadata, 'step%d' % step)
         writer.add_summary(summary, step)
         logger.info('step: %09d, cur_train_time: %f, train_mean_loss: %f', step, cur_train, mean_loss)
