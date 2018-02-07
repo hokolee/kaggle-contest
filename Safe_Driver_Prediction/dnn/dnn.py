@@ -14,7 +14,9 @@ def train():
     test_fq = tf.train.string_input_producer(tf.train.match_filenames_once(test_dir + '/*tfrecords'), num_epochs=1)
     test_batch = read_all_batch(test_fq)
 
-  train_prediction = inference(train_batch['feature_id'], train_batch['value'], layers)
+  #train_prediction = inference(train_batch['feature_id'], train_batch['value'], layers)
+  train_prediction = inference_wide_and_deep(train_batch['feature_id'], train_batch['value'], layers)
+
   train_mean_loss = log_loss(train_batch['label'], train_prediction)
   tf.summary.scalar('train_mean_loss', train_mean_loss)
 

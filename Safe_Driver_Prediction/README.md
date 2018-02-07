@@ -1,4 +1,5 @@
 # kaggle_safe_driver_prediction
+https://www.kaggle.com/c/porto-seguro-safe-driver-prediction
 
 * safe_driver_data_process.ipynb
 * python generate_libsvm_tfrecord.py

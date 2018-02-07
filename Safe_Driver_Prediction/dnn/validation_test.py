@@ -26,7 +26,9 @@ def calc_validation(sess, batch, epoch):
   value = tf.sparse_placeholder(tf.float32)
 
   tf.get_variable_scope().reuse_variables()
-  prediction = inference(feature_id, value, layers)
+  #prediction = inference(feature_id, value, layers)
+  prediction = inference_wide_and_deep(feature_id, value, layers)
+
   mean_loss = log_loss(label, prediction)
 
   ans_length = 0
@@ -85,7 +87,8 @@ def calc_test(sess, batch, validation_loss, epoch):
   value = tf.sparse_placeholder(tf.float32)
 
   tf.get_variable_scope().reuse_variables()
-  prediction = inference(feature_id, value, layers)
+  # prediction = inference(feature_id, value, layers)
+  prediction = inference_wide_and_deep(feature_id, value, layers)
 
   ans_instance_id = []
   ans_prediction = []
